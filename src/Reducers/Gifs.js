@@ -12,7 +12,7 @@ export const GifReducer = (state = initialState, action)=>{
             return {...state, loading:true, failure:false, success:false}
         case 'gifFailure':
             return {...state, loading:false, failure:true, success:false}
-        case 'gitSuccess':
+        case 'gifSuccess':
             return {...state, loading:false, failure:false, success:true, gifs:action.payload}
         default:
             return state

@@ -1,8 +1,13 @@
 import React from 'react'
 import {Button, Form, FormGroup, Label, Input} from "reactstrap"
+import {useSelector,useDispatch} from 'react-redux'
+
+import {searchGiphy} from "../Actions/GifActions"
 
 
 const FormComp = () => {
+
+  const dispatch = useDispatch()
 
   const [search,setSearch] = React.useState({
     string:''
@@ -15,7 +20,9 @@ const FormComp = () => {
   const submit = (e)=>{
     e.preventDefault()
 
-    console.log("the search so far",search)
+
+
+    dispatch(searchGiphy(search))
   }
 
 
