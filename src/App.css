@@ -24,3 +24,11 @@
   width: 95%;
   height: 95%;
 }
+
+@media screen and (max-width:500px ){
+  .gifGrid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
