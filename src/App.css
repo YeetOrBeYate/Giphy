@@ -3,14 +3,19 @@
 }
 
 .themed-container{
-  /* border: .1px solid red; */
+  border: .1px solid transparent;
   margin:1% auto;
+  background-color: #F4AC45;
+  border-radius: 5px;
 }
 
 .themed-form{
   margin:1% auto;
   /* border:1px solid blue; */
   text-align: left;
+  background-color: #92BFB1;
+  padding:1%;
+  border-radius: 5px;
 }
 
 .gifGrid{

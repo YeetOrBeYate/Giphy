@@ -10,7 +10,6 @@ const FormComp = () => {
 
   const dispatch = useDispatch()
   const Gifs = useSelector(state =>state.Gifs)
-  console.log(Gifs)
 
   const [search,setSearch] = React.useState({
     string:''

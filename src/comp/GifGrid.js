@@ -1,5 +1,5 @@
 import React from 'react'
-import {useSelector,useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import GifCard from "./GifCard"
 import { Spinner } from 'reactstrap';
 
@@ -9,7 +9,7 @@ const GifGrid = () => {
 
     const Gifs = useSelector(state =>state.Gifs)
 
-    if(!Gifs.gifs){
+    if(!Gifs.gifs || Gifs.gifs.length === 0){
         return(
             <div>
                 Start searching! There's endless possibilities
