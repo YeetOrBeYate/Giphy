@@ -2,23 +2,19 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import {Container} from "reactstrap"
+
+import FormComp from "./comp/FormComp"
+import GifGrid from "./comp/GifGrid"
+
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container className="themed-container" fluid="sm">
+        <FormComp/>
+        <GifGrid/>
+      </Container>
     </div>
   );
 }
