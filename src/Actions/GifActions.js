@@ -16,7 +16,7 @@ export const searchGiphy = (searchObject)=>{
         return axios.get(`//api.giphy.com/v1/gifs/search?q=${searchObject.string}&api_key=${apiKey}`)
 
         .then(res=>{
-            console.log("request made",res.data.data)
+
             let gifs = res.data.data
             dispatch(
                 {type:'gifSuccess', payload:gifs}

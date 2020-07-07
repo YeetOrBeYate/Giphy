@@ -27,7 +27,7 @@ const FormComp = () => {
 
 
     return (
-        <Form  className="themed-form">
+        <Form onSubmit={(e)=>submit(e)}  className="themed-form">
           <FormGroup >
             <Label for="searchBar">Search giphy!</Label>
             <Input id='searchBar' type="text" name="string" value={search.string} onChange={handleChange}/>

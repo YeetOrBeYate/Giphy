@@ -12,3 +12,15 @@
   /* border:1px solid blue; */
   text-align: left;
 }
+
+.gifGrid{
+  display: grid;
+  grid-template-columns:25% 25% 25% 25%;
+  grid-template-rows: auto auto auto auto auto;
+  justify-items: center;
+}
+
+.gifCard{
+  width: 95%;
+  height: 95%;
+}
