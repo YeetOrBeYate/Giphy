@@ -2,6 +2,8 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import GifCard from "./GifCard"
 import { Spinner } from 'reactstrap';
+import { SEARCH_GIFS } from '../redux/actions/types'
+
 
 const GifGrid = () => {
 
@@ -9,7 +11,7 @@ const GifGrid = () => {
 
     const loadingArray = useSelector(state => state.loading.isLoading)
 
-    const isLoading = loadingArray.some(loader => loader === 'searchGifs')
+    const isLoading = loadingArray.some(loader => loader === SEARCH_GIFS)
     
     const gifsPresent = gifs.length
 

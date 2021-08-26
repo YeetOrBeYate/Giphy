@@ -1,5 +1,8 @@
+import { SEARCH_GIFS } from './types'
+
+
 export const searchGiphyActipn = ({ string }) => ({
-  type: 'searchGifs',
+  type: SEARCH_GIFS,
   payload: {
     request: {
       method: 'get',
@@ -8,6 +11,6 @@ export const searchGiphyActipn = ({ string }) => ({
   },
   setLoading: {
     action: 'set',
-    type: 'searchGifs'
+    type: SEARCH_GIFS
   }
 })

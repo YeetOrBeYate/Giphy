@@ -1,0 +1,5 @@
+export const ON_SEARCH_GIFS = 'ON_SEARCH_GIFS'
+export const SEARCH_GIFS = 'SEARCH_GIFS'
+export const SET_GIFS = 'SET_GIFS'
+export const SET_LOADING = 'SET_LOADING'
+export const SEARCH_GIFS_SUCCESS = 'SEARCH_GIFS_SUCCESS'

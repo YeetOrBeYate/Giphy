@@ -1,6 +1,8 @@
 import React from 'react'
 import {Button, Form, FormGroup, Label, Input, Alert} from "reactstrap"
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
+
+import { ON_SEARCH_GIFS } from '../redux/actions/types'
 
 
 const FormComp = () => {
@@ -17,7 +19,7 @@ const FormComp = () => {
 
   const handleSearch = (e)=>{
     e.preventDefault()
-    dispatch({ type: 'onSearchGifs', payload: searchString})
+    dispatch({ type: ON_SEARCH_GIFS, payload: searchString})
     setSearch({ ...search, string: "" })
   }
 

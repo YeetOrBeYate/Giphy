@@ -1,12 +1,15 @@
 import { put, select, takeEvery } from 'redux-saga/effects'
 
+import {  SET_LOADING } from '../actions/types'
+
+
 const getLoadingArray = state => state.loading.isLoading
 
 function* addLoading({ payload }) {
 
   const loadingArray = yield select(getLoadingArray)
 
-  yield put({ type: 'setLoading', payload: [payload, ...loadingArray]})
+  yield put({ type: SET_LOADING, payload: [payload, ...loadingArray]})
 }
 
 function* removeLoading({ payload }) {
@@ -17,7 +20,7 @@ function* removeLoading({ payload }) {
 
   console.log(filteredLoaders, 'what Ima set after', loadingArray)
 
-  yield put ({type: 'setLoading', payload: [...filteredLoaders]})
+  yield put ({type: SET_LOADING, payload: [...filteredLoaders]})
 
 }
 
