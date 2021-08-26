@@ -2,7 +2,7 @@ import React from 'react'
 import {Button, Form, FormGroup, Label, Input, Alert} from "reactstrap"
 import { useDispatch, useSelector } from 'react-redux'
 
-import { ON_SEARCH_GIFS, SEARCH_GIFS } from '../redux/actions/types'
+import { ON_SEARCH_GIFS, SEARCH_GIFS, ON_REMOVE_ERROR } from '../redux/actions/types'
 
 
 const FormComp = () => {
@@ -14,8 +14,6 @@ const FormComp = () => {
   const { string: searchString } = search
 
   const errorArray = useSelector(state => state.error.errorArray)
-
-  console.log('HERE', errorArray)
 
   const isError = errorArray.some((error) => error === SEARCH_GIFS)
 
@@ -29,10 +27,14 @@ const FormComp = () => {
     setSearch({ ...search, string: "" })
   }
 
+  const handleErrorDismisal = () => {
+    dispatch({ type: ON_REMOVE_ERROR, payload: SEARCH_GIFS})
+  }
+
 
     return (
         <Form onSubmit={(e)=>handleSearch(e)}  className="themed-form">
-        <Alert color="danger" isOpen={isError}>
+          <Alert color="danger" isOpen={isError} toggle={handleErrorDismisal}>
             There seems to be an error, please retype and try again
           </Alert>
           <FormGroup >

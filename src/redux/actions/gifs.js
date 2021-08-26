@@ -6,7 +6,7 @@ export const searchGiphyAction = ({ string }) => ({
   payload: {
     request: {
       method: 'get',
-      url: `/search?q=${string}&api_key=YEETcGruXJIEb8W8c44Uy0xWjIkO5OfbjYS5`
+      url: `/search?q=${string}&api_key=cGruXJIEb8W8c44Uy0xWjIkO5OfbjYS5`
     }
   },
   setLoading: {
