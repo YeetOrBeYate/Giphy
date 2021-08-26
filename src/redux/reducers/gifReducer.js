@@ -4,8 +4,6 @@ const initialState = {
   gifsArray: []
 }
 
-
-
 export const gifReducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {

@@ -18,8 +18,6 @@ function* removeLoading({ payload }) {
 
   const filteredLoaders = loadingArray.filter((item) => item !== payload)
 
-  console.log(filteredLoaders, 'what Ima set after', loadingArray)
-
   yield put ({type: SET_LOADING, payload: [...filteredLoaders]})
 
 }
