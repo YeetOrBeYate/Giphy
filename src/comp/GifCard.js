@@ -7,11 +7,11 @@ const GifCard = (props) => {
 
     return (
         <>
-        <a href={img.url} target="_blank" rel="noopener noreferrer">
-            <div className="gifCard">
-                <img height="100%" width="100%" src={img.images.downsized.url} alt="loading img"/>
-            </div>
-        </a>
+            <a href={img.url} target="_blank" rel="noopener noreferrer">
+                <div className="gifCard">
+                    <img height="100%" width="100%" src={img.images.downsized.url} alt="loading img"/>
+                </div>
+            </a>
         </>
     )
 }

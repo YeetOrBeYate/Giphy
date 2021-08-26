@@ -8,22 +8,7 @@ import * as serviceWorker from './serviceWorker';
 //Redux packages
 
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware, combineReducers} from "redux";
-import thunk from "redux-thunk";
-
-//reducers
-
-import {GifReducer} from "./Reducers/Gifs"
-
-//we only have one reducer at the momemnt but that can change so lets just use the combiner middleware
-
-const rootReducer = combineReducers({
-  Gifs:GifReducer
-})
-
-const store = createStore(rootReducer,applyMiddleware(thunk));
-
-
+import store from './redux/store'
 
 ReactDOM.render(
   <Provider store={store}>

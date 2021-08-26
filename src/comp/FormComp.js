@@ -1,41 +1,37 @@
 import React from 'react'
 import {Button, Form, FormGroup, Label, Input, Alert} from "reactstrap"
-import {useSelector,useDispatch} from 'react-redux'
-
-
-import {searchGiphy} from "../Actions/GifActions"
+import {useDispatch} from 'react-redux'
 
 
 const FormComp = () => {
 
   const dispatch = useDispatch()
-  const Gifs = useSelector(state =>state.Gifs)
 
-  const [search,setSearch] = React.useState({
-    string:''
-  })
+  const [search, setSearch] = React.useState({ string: '' })
+  
+  const { string: searchString } = search
 
   const handleChange = (e)=>{
-      setSearch({...search, [e.target.name]:e.target.value})
+    setSearch({ ...search, [e.target.name]: e.target.value })
   }
 
-  const submit = (e)=>{
+  const handleSearch = (e)=>{
     e.preventDefault()
-    dispatch(searchGiphy(search))
-    setSearch({...search, string:""})
+    dispatch({ type: 'onSearchGifs', payload: searchString})
+    setSearch({ ...search, string: "" })
   }
 
 
     return (
-        <Form onSubmit={(e)=>submit(e)}  className="themed-form">
-          <Alert color="danger" isOpen={Gifs.failure}>
+        <Form onSubmit={(e)=>handleSearch(e)}  className="themed-form">
+          <Alert color="danger" isOpen={false}>
             There seems to be an error, please retype and try again
           </Alert>
           <FormGroup >
             <Label for="searchBar">Search giphy!</Label>
-            <Input id='searchBar' type="text" name="string" value={search.string} onChange={handleChange}/>
+            <Input id='searchBar' type="text" name="string" value={searchString} onChange={handleChange}/>
           </FormGroup>
-          <Button onClick ={(e)=>submit(e)}color="primary">Search</Button>
+          <Button type='submit' color="primary">Search</Button>
         </Form>
     )
 }

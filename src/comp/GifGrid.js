@@ -5,27 +5,31 @@ import { Spinner } from 'reactstrap';
 
 const GifGrid = () => {
 
+    const gifs = useSelector(state => state.gifs.gifsArray)
+
+    const loadingArray = useSelector(state => state.loading.isLoading)
+
+    const isLoading = loadingArray.some(loader => loader === 'searchGifs')
     
+    const gifsPresent = gifs.length
 
-    const Gifs = useSelector(state =>state.Gifs)
-
-    if(!Gifs.gifs || Gifs.gifs.length === 0){
+    if(!gifsPresent){
         return(
             <div>
                 Start searching! There's endless possibilities
             </div>
         )
     }
-    if(Gifs.loading){
-        return(
+    if (isLoading) {
+        return (
             <div>
-                <Spinner color="secondary"/>
+                <Spinner color="secondary" />
             </div>
         )
     }
     return (
         <div className="gifGrid">
-            {Gifs.gifs.map((img,index)=>(
+            {gifs.map((img,index)=>(
                 <GifCard img={img} key={index}/>
             ))}
         </div>
