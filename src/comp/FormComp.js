@@ -17,7 +17,8 @@ const FormComp = () => {
 
   const isError = errorArray.some((error) => error === SEARCH_GIFS)
 
-  const handleChange = (e)=>{
+  const handleChange = (e) => {
+    if (isError) dispatch({ type: ON_REMOVE_ERROR, payload: SEARCH_GIFS })
     setSearch({ ...search, [e.target.name]: e.target.value })
   }
 
@@ -33,7 +34,7 @@ const FormComp = () => {
 
 
     return (
-        <Form onSubmit={(e)=>handleSearch(e)}  className="themed-form">
+        <Form data-testid='form-1' onSubmit={(e)=>handleSearch(e)}  className="themed-form">
           <Alert color="danger" isOpen={isError} toggle={handleErrorDismisal}>
             There seems to be an error, please retype and try again
           </Alert>

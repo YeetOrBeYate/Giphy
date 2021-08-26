@@ -15,16 +15,16 @@ const GifGrid = () => {
     
     const gifsPresent = gifs.length
 
-    if(!gifsPresent){
+    if(!gifsPresent && !isLoading){
         return(
-            <div>
+            <div data-testid='grid-1'>
                 Start searching! There's endless possibilities
             </div>
         )
     }
     if (isLoading) {
         return (
-            <div>
+            <div data-testid='grid-2'>
                 <Spinner color="secondary" />
             </div>
         )
