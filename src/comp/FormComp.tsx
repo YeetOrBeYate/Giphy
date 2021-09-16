@@ -24,13 +24,12 @@ const FormComp = () => {
     setSearch({ ...search, [e.currentTarget.name]: e.currentTarget.value })
   }
 
-  // const handleSearch = (e)=>{
-  //   e.preventDefault()
-  //   dispatch({ type: ON_SEARCH_GIFS, payload: searchString})
-  //   setSearch({ ...search, string: "" })
-  // }
+  const handleSearch = (e: React.FormEvent)=>{
+    e.preventDefault()
+    dispatch({ type: ON_SEARCH_GIFS, payload: searchString})
+    setSearch({ ...search, inputString: "" })
+  }
 
-  // onSubmit = {(e)=> handleSearch(e)}
 
   const handleErrorDismisal = () => {
     dispatch({ type: ON_REMOVE_ERROR, payload: SEARCH_GIFS})
@@ -38,7 +37,7 @@ const FormComp = () => {
 
 
     return (
-        <Form data-testid='form-1'   className="themed-form">
+        <Form data-testid='form-1' onSubmit={(e) => handleSearch(e)}   className="themed-form">
           <Alert color="danger" isOpen={isError} toggle={handleErrorDismisal}>
             There seems to be an error, please retype and try again
           </Alert>

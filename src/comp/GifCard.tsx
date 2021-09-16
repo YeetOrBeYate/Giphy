@@ -1,9 +1,12 @@
 import React from 'react'
 
-const GifCard = (props) => {
+interface Props {
+    img: any
+}
+
+const GifCard = (props: Props) => {
 
     const img = props.img
-
 
     return (
         <>

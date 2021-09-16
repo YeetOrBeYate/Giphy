@@ -4,12 +4,13 @@ import GifCard from "./GifCard"
 import { Spinner } from 'reactstrap';
 import { SEARCH_GIFS } from '../redux/actions/types'
 
+import { RootState } from '../redux/reducers/reducer'
 
 const GifGrid = () => {
 
-    const gifs = useSelector(state => state.gifs.gifsArray)
+    const gifs = useSelector((state: RootState) => state.gifs.gifsArray)
 
-    const loadingArray = useSelector(state => state.loading.isLoading)
+    const loadingArray = useSelector((state: RootState) => state.loading.isLoading)
 
     const isLoading = loadingArray.some(loader => loader === SEARCH_GIFS)
     

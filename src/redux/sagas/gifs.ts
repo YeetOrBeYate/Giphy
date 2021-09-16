@@ -10,12 +10,30 @@ import {
   ON_SET_ERROR
 } from '../actions/types'
 
-function* onSearch(action) {
-  const { payload:searchString } = action
-  yield put(searchGiphyAction({string: searchString}))
+interface OnSearchAction{
+  type: typeof ON_SEARCH_GIFS,
+  payload: string
 }
 
-function* onSearchSuccess(action) {
+interface OnSearchSuccessAction {
+  type: typeof SEARCH_GIFS_SUCCESS,
+  payload: any,
+  meta: any
+}
+
+interface OnSearchFailAction {
+  type: typeof SEARCH_GIFS_FAIL,
+  error: any,
+  meta: any
+}
+
+function* onSearch(action: OnSearchAction) {
+  const { payload: searchString } = action
+  yield put(searchGiphyAction({ searchString: searchString}))
+}
+
+function* onSearchSuccess(action: OnSearchSuccessAction) {
+
   const { payload } = action
   const gifArray = payload.data.data
   yield put({
@@ -28,7 +46,8 @@ function* onSearchSuccess(action) {
   })
 }
 
-function* onSearchFail(action) {
+function* onSearchFail(action: OnSearchFailAction) {
+
   const { type: loadingError } = action.meta.previousAction.setLoading
   yield put({ type: ON_SET_ERROR, payload: loadingError})
 }
