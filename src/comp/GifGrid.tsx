@@ -16,6 +16,7 @@ const GifGrid = () => {
     
     const gifsPresent = gifs.length
 
+
     if(!gifsPresent && !isLoading){
         return(
             <div data-testid='grid-1'>

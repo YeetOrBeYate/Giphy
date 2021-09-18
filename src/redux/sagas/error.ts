@@ -21,7 +21,14 @@ interface RemoveError {
 function* onSetError(action : SetErrorAction): any {
   const { payload } = action
   const errorArray = yield select(getErrorArray)
-  yield put({type: SET_ERROR, payload:[payload, ...errorArray] })
+  yield put({
+    type: SET_ERROR,
+    payload: [payload, ...errorArray],
+    setLoading: {
+      action: 'unset',
+      type: SEARCH_GIFS
+    }
+  })
 }
 
 function* onRemoveError(action : RemoveError): any {
@@ -30,7 +37,10 @@ function* onRemoveError(action : RemoveError): any {
 
   const filteredErrors = errorArray.filter((error: string) => error !== errorType)
   
-  yield put({ type: SET_ERROR, payload: [...filteredErrors] })
+  yield put({
+    type: SET_ERROR,
+    payload: [...filteredErrors],
+  })
 }
 
 
