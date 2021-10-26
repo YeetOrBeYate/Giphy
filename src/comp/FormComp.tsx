@@ -6,7 +6,6 @@ import { ON_SEARCH_GIFS, SEARCH_GIFS, ON_REMOVE_ERROR } from '../redux/actions/t
 
 import { RootState } from '../redux/reducers/reducer'
 
-
 const FormComp = () => {
 
   const dispatch = useDispatch()
